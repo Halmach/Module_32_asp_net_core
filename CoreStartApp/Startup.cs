@@ -43,23 +43,33 @@ namespace CoreStartApp
                 endpoints.MapGet("/", async context => { await context.Response.WriteAsync($"App name: {env.ApplicationName}. App running configuration: {env.EnvironmentName}"); });
             });
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/config", async context =>
-                {
-                    await context.Response.WriteAsync($"ConfApp name: {env.ApplicationName}. App running configuration: {env.EnvironmentName}");
-                });
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/config", async context =>
+            //    {
+            //        await context.Response.WriteAsync($"ConfApp name: {env.ApplicationName}. App running configuration: {env.EnvironmentName}");
+            //    });
+            //});
+
+            app.Map("/config", Config);
 
             //ƒобавл€ем компонент дл€ логировани€ запросов с использованием метода Use.
-            
+
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync($"Welcome to the {env.ApplicationName}!");
+                await context.Response.WriteAsync($"Page not found");
             });
 
            
+        }
+
+        private static void Config(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+            {
+                await context.Response.WriteAsync($"App name: {Env.ApplicationName}. App running configuration: {Env.EnvironmentName}");
+            });
         }
 
         /// <summary>
