@@ -22,6 +22,7 @@ namespace CoreStartApp.Middlewares
         /// </summary>
         public async Task InvokeAsync(HttpContext context)
         {
+            // логирование добавлено
             // Для логирования данных о запросе используем свойста объекта HttpContext
             Console.WriteLine($"[{DateTime.Now}]: New request to http://{context.Request.Host.Value + context.Request.Path}");
             // Строка для публикации в лог
