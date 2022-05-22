@@ -4,4 +4,15 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="wwwRoot - Копировать\**" />
+    <Content Remove="wwwRoot - Копировать\**" />
+    <EmbeddedResource Remove="wwwRoot - Копировать\**" />
+    <None Remove="wwwRoot - Копировать\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\index.html" />
+  </ItemGroup>
+
 </Project>

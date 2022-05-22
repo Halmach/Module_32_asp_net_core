@@ -21,6 +21,7 @@ namespace CoreStartApp
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseWebRoot("Views");
                 });
     }
 }

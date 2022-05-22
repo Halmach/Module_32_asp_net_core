@@ -24,6 +24,7 @@ namespace CoreStartApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            Console.WriteLine($"Launching project from: {env.ContentRootPath}");
             Env = env;
             if (env.IsDevelopment() || env.IsStaging())
             {
@@ -31,6 +32,9 @@ namespace CoreStartApp
             }
 
             app.UseRouting();
+
+            // Поддержка статических файлов
+            app.UseStaticFiles();
             app.UseMiddleware<LoggingMiddleware>();
             //app.Use(async (context, next) =>
             //{
