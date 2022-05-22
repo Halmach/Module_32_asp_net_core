@@ -73,14 +73,14 @@ namespace CoreStartApp
             //Добавляем компонент для логирования запросов с использованием метода Use.
 
 
-            app.Run(async (context) =>
-            {
-                int zero = 0;
-                int result = 4 / zero;
-                await context.Response.WriteAsync($"Page not found");
-            });
+            //app.Run(async (context) =>
+            //{
 
-           
+            //    await context.Response.WriteAsync($"Page not found");
+            //});
+
+            // обрабатываем ошибки HTTP
+            app.UseStatusCodePages();
         }
 
         private static void Config(IApplicationBuilder app)
