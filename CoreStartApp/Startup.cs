@@ -75,6 +75,8 @@ namespace CoreStartApp
 
             app.Run(async (context) =>
             {
+                int zero = 0;
+                int result = 4 / zero;
                 await context.Response.WriteAsync($"Page not found");
             });
 
